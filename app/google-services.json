@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "218619774391",
+    "project_id": "capstone-bangkit-academy",
+    "storage_bucket": "capstone-bangkit-academy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218619774391:android:9bc727e1209ebf0bfd5432",
+        "android_client_info": {
+          "package_name": "com.dicoding.capstone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGYed-vGuWr0v7icUoAdcIOOreltAKucw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

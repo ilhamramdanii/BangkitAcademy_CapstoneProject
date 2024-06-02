@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">FaceSignify</string>
+
+    <!--  Authentication Page  -->
+    <string name="signup">Sign Up</string>
+    <string name="signin">Sign In</string>
+
+    <!--  Authentication Field  -->
+    <string name="full_name">Full Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="repeat_password">Repeat Password</string>
+
+    <!--  Authentication Text Field  -->
+    <string name="enter_your_full_name">enter your Full Name</string>
+    <string name="enter_your_email_address">enter your Email Address</string>
+    <string name="enter_your_password">enter your Password</string>
+    <string name="re_enter_your_password">re-enter your Password</string>
+
+    <!--  Authentication Condition  -->
+    <string name="already_have_account">Already have account?</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="lupa_password">Lupa Password?</string>
+
+    <!--  Forgot Password  -->
+    <string name="forgot_password">Forgot Password</string>
+    <string name="otp">OTP</string>
+    <string name="desc_otp">masukkan kode OTP yang telah dikirimkan melalui email</string>
+    <string name="konfirmasi_alamat_email">Konfirmasi Alamat Email</string>
+    <string name="konfirmasi">Konfirmasi</string>
+    <string name="kirim_ulang">Kirim Ulang</string>
+    <string name="new_password">New Password</string>
+    <string name="masukkan_password_baru">Masukkan Password Baru</string>
+    <string name="konfirmasi_password_baru">Konfirmasi Password Baru</string>
+    <string name="title_activity_tab_layout">TabLayoutActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+</resources>
