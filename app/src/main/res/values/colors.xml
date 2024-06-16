@@ -2,7 +2,19 @@
 <resources>
     <color name="primary">#3F51B5</color>
     <color name="secondary">#2196F3</color>
+
     <color name="black">#FF000000</color>
+    <color name="dark_gray">#232323</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black_trans">#8D000000</color>
+    <color name="black_nav">#FF1B1B1B</color>
+
+    <color name="green">#36D13D</color>
+
+    <!--    Settings  -->
+    <color name="blue_moon">#1844B2</color>
+    <color name="orange_sun">#FFCA00</color>
+    <color name="gray">#CACACA</color>
+    <color name="blue_soft">#4AA4F3</color>
+    <color name="yellow_soft">#FFF73B</color>
 </resources>

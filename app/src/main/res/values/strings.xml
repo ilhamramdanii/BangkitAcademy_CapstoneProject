@@ -5,6 +5,8 @@
     <string name="signup">Sign Up</string>
     <string name="signin">Sign In</string>
 
+
+
     <!--  Authentication Field  -->
     <string name="full_name">Full Name</string>
     <string name="email_address">Email Address</string>
@@ -32,6 +34,16 @@
     <string name="new_password">New Password</string>
     <string name="masukkan_password_baru">Masukkan Password Baru</string>
     <string name="konfirmasi_password_baru">Konfirmasi Password Baru</string>
+    <string name="email_required">Alamat email wajib diisi</string>
+    <string name="email_not_found">Email tidak ditemukan</string>
+    <string name="otp_sent">OTP telah dikirim ke email Anda</string>
+    <string name="error">Error</string>
+
+    <!-- Settings -->
+    <string name="light_theme">Light Theme</string>
+    <string name="dark_theme">Dark Theme</string>
+    <string name="setting">Setting</string>
+
     <string name="title_activity_tab_layout">TabLayoutActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -40,5 +52,14 @@
     <string name="status">Status</string>
     <string name="description">Description</string>
     <string name="upload_picture">Upload Picture</string>
+    <string name="add">Add Class</string>
+    <string name="profile">Profile</string>
+    <string name="image_classifier_failed">Image classifier failed to initialize. See error logs for details</string>
+    <string name="camera">Camera</string>
+    <string name="failed_camera">Kamera Gagal</string>
+    <string name="failed_picture">Foto Gagal Diambil</string>
+    <string name="lanjut">Lanjut</string>
+    <string name="silahkan_berikan_izin_kamera_untuk_menggunakan_aplikasi_ini">Silahkan berikan izin mengakses kamera untuk menggunakan aplikasi ini</string>
+    <string name="let_s_start_the_journey">Let\'s start the journey</string>
 
 </resources>

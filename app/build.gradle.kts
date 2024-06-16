@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.google.gms.google.services)
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -37,6 +38,8 @@ android {
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
+        mlModelBinding = true
     }
 }
 
@@ -49,21 +52,45 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.material.v140)
-
-    // Kotlin
     implementation(libs.androidx.navigation.fragment.ktx.v277)
     implementation(libs.androidx.navigation.ui.ktx.v277)
-
-    // Feature module Support
     implementation(libs.androidx.navigation.dynamic.features.fragment)
 
+    //TF Lite
+    implementation(libs.tensorflow.lite.support)
+    implementation(libs.tensorflow.lite.metadata)
+    implementation(libs.tensorflow.lite.task.vision)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Glide
+    implementation(libs.glide)
+
     // Camera
-    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.core)
     implementation(libs.androidx.camera.camera2)
     implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.camera.extensions)
+
+    implementation(libs.guava)
 
     // Jetpack Compose Integration
     implementation(libs.androidx.navigation.compose)
+
+    // Firebase Authentication
+    implementation(libs.firebase.auth)
+
+    // androidx.datastore
+    implementation(libs.androidx.datastore.preferences.core)
+    implementation(libs.androidx.datastore.preferences)
 
     // Firebase Firestore
     implementation(libs.firebase.firestore.ktx)

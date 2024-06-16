@@ -4,28 +4,35 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import at.favre.lib.crypto.bcrypt.BCrypt
 import com.dicoding.capstone.databinding.ActivityRegisterBinding
-import com.dicoding.capstone.ui.MainActivity
+import com.dicoding.capstone.local.data.UserPreference
+import com.dicoding.capstone.util.ViewModelFactory
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RegisterActivity : AppCompatActivity() {
 
     // View Binding Declaration
     private lateinit var binding: ActivityRegisterBinding
 
-    // Database Declaration
-    private lateinit var db: FirebaseFirestore
+    // ViewModel Declaration
+    private val viewModel: AuthViewModel by viewModels {
+        val userPreference = UserPreference(this)
+        ViewModelFactory(FirebaseAuth.getInstance(), FirebaseFirestore.getInstance(), userPreference)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // Database Initiation
-        db = FirebaseFirestore.getInstance()
+        supportActionBar?.hide()
 
         moveToLoginPage()
         setButtonOnClick()
@@ -46,41 +53,38 @@ class RegisterActivity : AppCompatActivity() {
             val rePassword = binding.etRepass.text.toString().trim()
 
             if (name.isEmpty() || email.isEmpty() || password.isEmpty() || rePassword.isEmpty()) {
-                Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show()
+                showToast("All fields must be filled")
                 return@setOnClickListener
             }
 
             if (password.length < 8) {
-                Toast.makeText(this, "Password must be at least 8 characters", Toast.LENGTH_SHORT).show()
+                showToast("Password must be at least 8 characters")
                 return@setOnClickListener
             }
 
             if (password != rePassword) {
-                Toast.makeText(this, "Password does not match", Toast.LENGTH_SHORT).show()
+                showToast("Password does not match")
                 return@setOnClickListener
             }
 
-            // Hash Password using bcrypt
-            val hashedPassword = BCrypt.withDefaults().hashToString(12, password.toCharArray())
-
-            // Save the data to Database
-            val user = hashMapOf(
-                "name" to name,
-                "email" to email,
-                "password" to hashedPassword
-            )
-
-            db.collection("users")
-                .add(user)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
+            viewModel.registerUser(name, email, password) { success, message ->
+                if (success) {
+                    showToast("Registration successful")
+                    val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)
                     finish()
+                } else {
+                    showToast("Registration failed: $message")
                 }
-                .addOnFailureListener { e ->
-                    Toast.makeText(this, "Registration failed: ${e.message}", Toast.LENGTH_SHORT).show()
-                }
+            }
+        }
+    }
+
+    private fun showToast(message: String) {
+        GlobalScope.launch {
+            withContext(Dispatchers.Main) {
+                Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

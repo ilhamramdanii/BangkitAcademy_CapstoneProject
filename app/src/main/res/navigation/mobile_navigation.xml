@@ -13,13 +13,13 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.dicoding.capstone.ui.tabLayout.ui.dashboard.DashboardFragment"
+        android:name="com.dicoding.capstone.ui.tabLayout.ui.addClass.AddClassFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.dicoding.capstone.ui.tabLayout.ui.notifications.NotificationsFragment"
+        android:name="com.dicoding.capstone.ui.tabLayout.ui.profile.ProfileFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>
